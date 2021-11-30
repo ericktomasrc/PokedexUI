@@ -1,0 +1,41 @@
+<mat-accordion>
+    <mat-expansion-panel  class="acordion-form-froup"   
+    (opened)="panelOpenState = true" 
+    (closed)="panelOpenState = false">             
+      <mat-expansion-panel-header class="cabeceraStyle">
+        <mat-panel-title class="tituloSerAd">            
+            <h4 style="font-weight: bold;">  {{listPokemones.nombre}} </h4>          
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <br>
+     Altura: {{listPokemones.atura}} cm <br>
+     Peso: {{listPokemones.peso}} kg<br>
+     Habilidad: {{listPokemones.habilidad}} <br>
+     Categoria: {{listPokemones.categoria}} <br>
+     Sexo:
+     <label *ngIf="listPokemones.idSexoH!=0">Macho</label>,
+     <label *ngIf="listPokemones.idSexoM!=0">Hembra</label>
+     Version1: {{listPokemones.version1}} <br>
+     Version2: {{listPokemones.version2}} <br>
+      <ul>
+         <h4 style="font-weight: bold;"> DEBILIDADES</h4>
+        <li  *ngFor="let debilidad of listPokemones.debilidades" let indice=index >
+         {{debilidad.nombre}}</li>
+     </ul>
+     <ul>
+        <h4 style="font-weight: bold;">  SCORE BASE</h4>       
+      <li  *ngFor="let score of listPokemones.scoreBase" let indice=index >
+       Ataque:{{score.ataque}} %<br>
+       AtaqueEspecial:{{score.ataqueEspecial}} %<br>
+       Defensa:{{score.defensa}} %<br>
+       DefensaEspecial:{{score.defensaEspecial}} %<br>
+       Velocidad:{{score.velocidad}} %<br>
+    </li>
+   </ul>
+   <ul>
+    <h4 style="font-weight: bold;">  TIPOS</h4>
+  <li  *ngFor="let tipo of listPokemones.tipos" let indice=index >
+   {{tipo.nombre}}</li>
+</ul>
+    </mat-expansion-panel>
+  </mat-accordion>
